@@ -1,9 +1,12 @@
-# DeepPhoneticToolsTutorial
+# {Deep} Phonetic Tools Tutorial
 
-The repository contains scripts and link to the repositories of the Deep Phonetic Tools.
+The repository contains the scripts, data and links to the repositories that used in the tutorial presented at BigPhon, a LabPhon15 Satellite Workshop. 
 
 ## Installation
-The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan and Ubuntu 14.04. 
+The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan and Ubuntu 14.04. In order to install you need to type in command line
+```
+git clone --recursive https://github.com/MLSpeech/DeepPhoneticToolsTutorial
+```
 
 ### Dependencies
 The code uses the following dependencies:
