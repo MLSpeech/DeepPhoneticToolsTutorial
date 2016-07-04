@@ -1,3 +1,15 @@
 [submodule "DeepVOT"]
 	path = DeepVOT
 	url = https://github.com/MLSpeech/DeepVOT
+[submodule "DeepFormants"]
+	path = DeepFormants
+	url = https://github.com/MLSpeech/DeepFormants
+[submodule "DeepWDM"]
+	path = DeepWDM
+	url = https://github.com/MLSpeech/DeepWDM
+[submodule "AutoVowelDuration"]
+	path = AutoVowelDuration
+	url = https://github.com/MLSpeech/AutoVowelDuration
+[submodule "AutoVOT"]
+	path = AutoVOT
+	url = https://github.com/MLSpeech/AutoVOT
