@@ -80,3 +80,5 @@ python GenerateSearchWindows.py sampleFiles/word_durations
 
 python AutoVOT.py sampleFiles/waveform sampleFiles/word_durations
 ```
+
+For more details please refer to (https://mlspeech.github.io)
