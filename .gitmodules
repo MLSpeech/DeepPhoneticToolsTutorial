@@ -1,0 +1,3 @@
+[submodule "DeepVOT"]
+	path = DeepVOT
+	url = https://github.com/MLSpeech/DeepVOT
