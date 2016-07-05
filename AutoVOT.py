@@ -22,6 +22,36 @@ def mylistdir(directory):
     return [x for x in filelist if not (x.startswith('.'))]
 
 
+
+
+def csv_append_row_and_correct_wav(tmp_preds, preds_filename, wav_path, tmp_wav_path, with_headers=True):
+
+    if with_headers:
+        skip_header = True
+
+    all_lines = list()
+
+    # check if the CSV file exists
+    if os.path.isfile(preds_filename):
+        # read it lines
+        for line in open(preds_filename, 'r'):
+            all_lines.append(line)
+    else:
+        # if the file does not exist it does not have headers and they should be copied
+        skip_header = False
+
+    # check if there is a header
+    for line in open(tmp_preds, 'r'):
+        if skip_header:
+            skip_header = False
+        else:
+            all_lines.append(line.replace(tmp_wav_path, wav_path))
+    # now dump everything back
+    with open(preds_filename, 'w') as f:
+        for line in all_lines:
+            f.write(line)
+
+
 def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
     # check if both inputs are directories
     if os.path.isdir(wav_path) and os.path.isdir(textgrid_path):
@@ -44,7 +74,7 @@ def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
                                                                                        windows_tier,
                                                                                        tmp_predictions)
             easy_call(command2)
-            csv_append_row(tmp_predictions, output_csv_filename_abs)
+            csv_append_row_and_correct_wav(tmp_predictions, output_csv_filename_abs, wav_filename_abs, tmp_wav16_filename)
             os.remove(tmp_predictions)
             os.remove(tmp_wav16_filename)
             os.chdir(current_dir)
