@@ -1,15 +1,21 @@
 [submodule "DeepVOT"]
 	path = DeepVOT
 	url = https://github.com/MLSpeech/DeepVOT
+        ignore = dirty
 [submodule "DeepFormants"]
 	path = DeepFormants
 	url = https://github.com/MLSpeech/DeepFormants
+	ignore = dirty
 [submodule "DeepWDM"]
 	path = DeepWDM
 	url = https://github.com/MLSpeech/DeepWDM
+        ignore = dirty
 [submodule "AutoVowelDuration"]
 	path = AutoVowelDuration
 	url = https://github.com/MLSpeech/AutoVowelDuration
+        ignore = dirty
 [submodule "AutoVOT"]
 	path = AutoVOT
 	url = https://github.com/MLSpeech/AutoVOT
+        ignore = dirty
+
