@@ -29,7 +29,8 @@ def mylistdir(directory):
 def main(wav_path, textgrid_path, prediction_filename, tier_name):
     # check if both inputs are directories
     if os.path.isdir(wav_path) and os.path.isdir(textgrid_path):
-        os.remove(prediction_filename)
+        if os.path.isfile(prediction_filename):
+            os.remove(prediction_filename)
         # Select each wav file, create a textgrid name, run DeepWDM script
         for wav_filename in mylistdir(wav_path):
             textgrid_filename = wav_filename.replace(".wav", ".TextGrid")
