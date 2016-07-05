@@ -66,5 +66,11 @@ if __name__ == "__main__":
     parser.add_argument("output_predictions", help="CSV file with predictions")
     args = parser.parse_args()
     
+    # check that the RNN model exists
+    if not os.path.isfile('DeepWDM/back_end/results/1_layer_model.net'):
+        print >> sys.stderr, "Error: RNN model was not install. Please download it from https://github.com/MLSpeech/DeepPhoneticToolsTutorial"
+        print >> sys.stderr, "    and place it here: DeepWDM/back_end/results/1_layer_model.net"
+        exit()
+
     # main function
     main(args.input_wav_path, args.output_textgrid_path, "rnn", args.output_predictions)

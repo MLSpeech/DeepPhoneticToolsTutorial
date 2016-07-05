@@ -22,34 +22,45 @@ def mylistdir(directory):
     return [x for x in filelist if not (x.startswith('.'))]
 
 
-def main(wav_path, textgrid_path, windows_tier):
+def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
     # check if both inputs are directories
     if os.path.isdir(wav_path) and os.path.isdir(textgrid_path):
+        if os.path.isfile(output_csv_filename):
+            os.remove(output_csv_filename)
         # Select each wav file, create a textgrid name, run DeepWDM script
         for wav_filename in mylistdir(wav_path):
             textgrid_filename = wav_filename.replace(".wav", ".TextGrid")
             wav_filename_abs = os.path.abspath("%s/%s" % (wav_path, wav_filename))
             textgrid_filename_abs = os.path.abspath("%s/%s" % (textgrid_path, textgrid_filename))
+            output_csv_filename_abs = os.path.abspath(output_csv_filename)
             os.chdir("AutoVOT/autovot/bin")
             tmp_wav16_filename = generate_tmp_filename("wav")
             command1 = "sox %s -c 1 -r 16000 %s" % (wav_filename_abs, tmp_wav16_filename)
             easy_call(command1)
-            command2 = "auto_vot_decode.py %s %s %s --window_tier %s" % (tmp_wav16_filename,
-                                                                             textgrid_filename_abs,
-                                                                             auto_vot_model, windows_tier)
+            tmp_predictions = generate_tmp_filename("preds")
+            command2 = "auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
+                                                                                       textgrid_filename_abs,
+                                                                                       auto_vot_model,
+                                                                                       windows_tier,
+                                                                                       tmp_predictions)
             easy_call(command2)
+            csv_append_row(tmp_predictions, output_csv_filename_abs)
+            os.remove(tmp_predictions)
             os.remove(tmp_wav16_filename)
             os.chdir(current_dir)
     elif os.path.isfile(wav_path):
         wav_path_abs = os.path.abspath(wav_path)
         textgrid_path_abs = os.path.abspath(textgrid_path)
+        output_csv_filename_abs = os.path.abspath(output_csv_filename)
         os.chdir("AutoVOT/autovot/bin")
         tmp_wav16_filename = generate_tmp_filename("wav")
         command1 = "sox %s -c 1 -r 16000 %s" % (wav_path_abs, tmp_wav16_filename)
         easy_call(command1)
-        command2 = "auto_vot_decode.py %s %s %s --window_tier %s" % (tmp_wav16_filename,
-                                                                         textgrid_path_abs,
-                                                                         auto_vot_model, windows_tier)
+        command2 = "auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
+                                                                                   textgrid_path_abs,
+                                                                                   auto_vot_model,
+                                                                                   windows_tier,
+                                                                                   output_csv_filename_abs)
         easy_call(command2)
         os.remove(tmp_wav16_filename)
         os.chdir(current_dir)
@@ -63,8 +74,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser("Automatic tool of word duration measurement.")
     parser.add_argument("wav_path", help="a WAV file or folder with WAV files")
     parser.add_argument("textgrid_path", help="a TextGrid file or folder")
+    parser.add_argument("csv_output_path", help="a CSV filename for output")
     parser.add_argument("--windows_tier", default="window", help="optional tier name for search window")
     args = parser.parse_args()
     
     # main function
-    main(args.wav_path, args.textgrid_path, args.windows_tier)
+    main(args.wav_path, args.textgrid_path, args.windows_tier, args.csv_output_path)
