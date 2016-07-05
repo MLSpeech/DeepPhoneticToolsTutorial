@@ -3,7 +3,7 @@
 The repository contains the scripts, data and links to the repositories used in the tutorial presented at BigPhon, a LabPhon15 Satellite Workshop. 
 
 ## Installation
-The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan and Ubuntu 14.04. In order to install you need to type in the command line:
+The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan and Ubuntu 14.04. In order to install these tools, you need to type in the command line:
 ```
 git clone --recursive https://github.com/MLSpeech/DeepPhoneticToolsTutorial.git
 ```
