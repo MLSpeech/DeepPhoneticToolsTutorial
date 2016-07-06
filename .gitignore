@@ -1,0 +1,7 @@
+*.pyc 
+sampleFiles/vowel_durations/*TextGrid
+sampleFiles/word_durations/*TextGrid
+sampleFiles/auto_vot.csv
+sampleFiles/formants.csv
+sampleFiles/word_durations.csv
+.idea

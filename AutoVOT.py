@@ -13,6 +13,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 
 auto_vot_model = "models/vot_predictor.amanda.max_num_instances_1000.model"
 
+
 # Directory listing for Mac, to avoid files like .DS_Store
 # https://mail.python.org/pipiermail/tutor/2004-April/029019.html
 def mylistdir(directory):
@@ -20,8 +21,6 @@ def mylistdir(directory):
     that start with a leading period (e.g. .DS_Store)."""
     filelist = os.listdir(directory)
     return [x for x in filelist if not (x.startswith('.'))]
-
-
 
 
 def csv_append_row_and_correct_wav(tmp_preds, preds_filename, wav_path, tmp_wav_path, with_headers=True):
