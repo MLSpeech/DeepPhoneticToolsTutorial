@@ -7,6 +7,15 @@ The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan
 ```
 git clone --recursive https://github.com/MLSpeech/DeepPhoneticToolsTutorial.git
 ```
+Then
+```
+sudo pip install scikits.talkbox
+```
+and also
+```
+cd AutoVOT/autovot/code/
+make
+```
 
 #### Dependencies
 The code uses the following dependencies:
