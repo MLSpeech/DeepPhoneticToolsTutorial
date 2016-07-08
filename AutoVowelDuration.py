@@ -47,8 +47,9 @@ def main(wav_path, textgrid_path, output_predictions):
     elif os.path.isfile(wav_path):
         wav_path_abs = os.path.abspath(wav_path)
         textgrid_path_abs = os.path.abspath(textgrid_path)
+        output_predictions_abs = os.path.abspath(output_predictions)
         os.chdir("AutoVowelDuration")
-        AutoVowelDuration.predict.main(wav_path_abs, textgrid_path_abs, output_predictions)
+        AutoVowelDuration.predict.main(wav_path_abs, textgrid_path_abs, output_predictions_abs)
         os.chdir(current_dir)
     else:
         print >> sys.stderr, "Input paths should be both files or both directories."
