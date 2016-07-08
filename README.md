@@ -7,6 +7,15 @@ The code is compatible with Mac OS X and Linux and was tested on OS X El-Capitan
 ```
 git clone --recursive https://github.com/MLSpeech/DeepPhoneticToolsTutorial.git
 ```
+Then
+```
+sudo pip install scikits.talkbox
+```
+and also
+```
+cd AutoVOT/autovot/code/
+make
+```
 
 #### Dependencies
 The code uses the following dependencies:
@@ -30,14 +39,16 @@ luarocks install rnn
  - For the visualization tools: [Matplotlib](https://penandpants.com/2012/02/24/install-python/)
 
 #### Ubuntu
-Ubuntu users should also install SoX:
+Ubuntu users should also install [SoX] (http://sox.sourceforge.net):
 ```bash
 apt-get install sox
 ```
  
 #### Model Installation
-The model for DeepWDM should be downloaded from here: [RNN model](https://drive.google.com/open?id=0Bxkc5_D0JjpiNHVzU19WTUdBS3M). Then, it should be moved to here: `DeepWDM/back_end/results/`.
-
+The model for DeepWDM should be downloaded from here: [RNN model](https://drive.google.com/open?id=0Bxkc5_D0JjpiNHVzU19WTUdBS3M). Then, it should be moved to  DeepWDM/back_end/results/ as follows
+```
+cp ~/Download/1_layer_model.net DeepWDM/back_end/results
+```
 
 ## Usage and Examples
 
