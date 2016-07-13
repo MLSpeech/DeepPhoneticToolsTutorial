@@ -13,8 +13,9 @@ sudo pip install scikits.talkbox
 ```
 and also
 ```
-cd AutoVOT/autovot/code/
+cd DeepPhoneticToolsTutorial/AutoVOT/autovot/code/
 make
+cd ../../../
 ```
 
 #### Dependencies
