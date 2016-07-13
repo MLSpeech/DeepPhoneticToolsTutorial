@@ -35,8 +35,8 @@ source ~/.profile
 # For rnn package installation
 luarocks install rnn
 ```
- - [Python (2.7) + Numpy](https://penandpants.com/2012/02/24/install-python/)
-  - [Java] (http://www.oracle.com/technetwork/java/javase/downloads/index.html) - download the JDK and  not the JRE
+- [Python (2.7) + Numpy](https://penandpants.com/2012/02/24/install-python/)
+- [Java] (http://www.oracle.com/technetwork/java/javase/downloads/index.html) - download the JDK and  not the JRE
 - For the visualization tools: [Matplotlib](https://penandpants.com/2012/02/24/install-python/)
 
 #### Model Installation
