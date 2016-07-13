@@ -72,7 +72,7 @@ python GenerateSearchWindows.py sampleFiles/word_durations/goose_male.TextGrid -
 The resulting TextGrid will include a new tier called *WINDOW*.
 The actual extraction of the VOT can be done as follows:
 ```
-python AutoVOT.py sampleFiles/waveform/goose_male.wav sampleFiles/word_durations/goose_male.TextGrid sampleFiles/vot.csv
+python AutoVOT.py sampleFiles/waveforms/goose_male.wav sampleFiles/word_durations/goose_male.TextGrid sampleFiles/vot.csv
 ```
 #### Example 2: Processing a directory of files
 We now show how to process a whole directory of files. To extract vowel durations and formants, type:
