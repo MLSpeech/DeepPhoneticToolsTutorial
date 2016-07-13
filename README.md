@@ -39,12 +39,6 @@ luarocks install rnn
  - [Python (2.7) + Numpy](https://penandpants.com/2012/02/24/install-python/)
  - For the visualization tools: [Matplotlib](https://penandpants.com/2012/02/24/install-python/)
 
-#### Ubuntu
-Ubuntu users should also install [SoX] (http://sox.sourceforge.net):
-```bash
-apt-get install sox
-```
- 
 #### Model Installation
 The model for DeepWDM should be downloaded from here: [RNN model](https://drive.google.com/open?id=0Bxkc5_D0JjpiNHVzU19WTUdBS3M). Then, it should be moved to  DeepWDM/back_end/results/ as follows
 ```
