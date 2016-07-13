@@ -41,7 +41,7 @@ luarocks install rnn
 #### Model Installation
 The model for DeepWDM should be downloaded from here: [RNN model](https://drive.google.com/open?id=0Bxkc5_D0JjpiNHVzU19WTUdBS3M). Then, it should be moved to  DeepWDM/back_end/results/ as follows
 ```
-cp ~/Downloads/1_layer_model.net DeepWDM/back_end/results
+cp ~/Downloads/1_layer_model.net ~/DeepPhoneticTools/DeepWDM/back_end/results
 ```
 
 ## Usage and Examples
