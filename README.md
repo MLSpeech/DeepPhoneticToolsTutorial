@@ -15,7 +15,6 @@ and also
 ```
 cd DeepPhoneticToolsTutorial/AutoVOT/autovot/code/
 make
-cd ../../../
 ```
 
 #### Dependencies
