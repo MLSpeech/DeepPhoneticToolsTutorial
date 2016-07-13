@@ -67,7 +67,7 @@ def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
             command1 = "sox %s -c 1 -r 16000 %s" % (wav_filename_abs, tmp_wav16_filename)
             easy_call(command1)
             tmp_predictions = generate_tmp_filename("preds")
-            command2 = "auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
+            command2 = "python auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
                                                                                        textgrid_filename_abs,
                                                                                        auto_vot_model,
                                                                                        windows_tier,
@@ -85,7 +85,7 @@ def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
         tmp_wav16_filename = generate_tmp_filename("wav")
         command1 = "sox %s -c 1 -r 16000 %s" % (wav_path_abs, tmp_wav16_filename)
         easy_call(command1)
-        command2 = "auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
+        command2 = "python auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
                                                                                    textgrid_path_abs,
                                                                                    auto_vot_model,
                                                                                    windows_tier,
