@@ -4,7 +4,7 @@
 # Code for BigPhon tutorial, July 2016
 # Emily Cibelli, emily.cibelli@northwestern.edu
 
-# Last updated: 7/3/16
+# Last updated: 7/12/16
 #######################################################
 
 # ----------------------------------------------------
@@ -59,10 +59,12 @@ dfVowel$F4 = dfVowel$F4 * 1000
 # ..... Simple plots  ......#
 #############################
 
+# ........................
 ## Plot duration by sex by vowel
 bwplot(duration ~ sex | vowel, data = dfVowel,
         main = "Duration  by sex by vowel", ylab = "Duration (ms)")
 
+# ........................
 ## Relationship in vowel duration between the speakers
 dfVowelCast <- dcast(dfVowel[,c("duration", "word", "sex")], 
                      word ~ sex, value.var = "duration") 
@@ -72,22 +74,52 @@ plot(male ~ female, data = dfVowelCast, pch = 16, cex = 1.25,
 abline(lm(male ~ female, data = dfVowelCast), lty = 2)
 text(250, 220, sprintf("r = %s", round(cor.test(dfVowelCast$male, dfVowelCast$female)$estimate, 3)))
 
-
+# ........................
 ## Plot vowel spaces by speaker
+
+# Add colors for vowels
 dfVowel$vowelCol = ifelse(dfVowel$vowel == "a", "blue", 
                           ifelse(dfVowel$vowel == "i", "green",
-                                 ifelse(dfVowel$vowel == "u", "red", “purple”)))
+                                 ifelse(dfVowel$vowel == "u", "red", "purple")))
 
+# Set x and y limits by speaker mins and max
+
+maleYLimMin = min(dfVowel[dfVowel$sex == "male",]$F1) -
+  min(dfVowel[dfVowel$sex == "male",]$F1)*.1
+
+maleYLimMax = max(dfVowel[dfVowel$sex == "male",]$F1) +
+  min(dfVowel[dfVowel$sex == "male",]$F1)*.1
+
+maleXLimMin = min(dfVowel[dfVowel$sex == "male",]$F2) -
+  min(dfVowel[dfVowel$sex == "male",]$F2)*.1
+
+maleXLimMax = max(dfVowel[dfVowel$sex == "male",]$F2) +
+  min(dfVowel[dfVowel$sex == "male",]$F2)*.1
+
+femaleYLimMin = min(dfVowel[dfVowel$sex == "female",]$F1) -
+  min(dfVowel[dfVowel$sex == "female",]$F1)*.1
+
+femaleYLimMax = max(dfVowel[dfVowel$sex == "female",]$F1) +
+  min(dfVowel[dfVowel$sex == "female",]$F1)*.1
+
+femaleXLimMin = min(dfVowel[dfVowel$sex == "female",]$F2) -
+  min(dfVowel[dfVowel$sex == "female",]$F2)*.1
+
+femaleXLimMax = max(dfVowel[dfVowel$sex == "female",]$F2) +
+  min(dfVowel[dfVowel$sex == "female",]$F2)*.1
+
+
+#Plot
 par(mfrow = c(1,2))
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "male",],
      log = "xy",
      main = "Male speaker", ylab = "F1", xlab = "F2",
-     ylim = c(750, 300), xlim = c(2250, 1250),
+     ylim = c(maleYLimMax, maleYLimMin), xlim = c(maleXLimMax, maleXLimMin),
      pch = 16, col = dfVowel$vowelCol)
 
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "female",],
      log = "xy",
      main = "Female speaker", ylab = "F1", xlab = "F2",
-     ylim = c(750, 350), xlim = c(2500, 1300),
+     ylim = c(femaleYLimMax, femaleYLimMin), xlim = c(femaleXLimMax, femaleXLimMin),
      pch = 16, col = dfVowel$vowelCol)
 

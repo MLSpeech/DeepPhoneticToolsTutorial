@@ -4,7 +4,7 @@
 # Code for BigPhon tutorial, July 2016
 # Emily Cibelli, emily.cibelli@northwestern.edu
 
-# Last updated: 7/5/16
+# Last updated: 7/12/16
 #######################################################
 
 # ----------------------------------------------------
