@@ -47,11 +47,6 @@ dfVowel[dfVowel$word %in% c("booth", "dupe", "goose", "kook", "pooch", "tooth"),
 dfVowel[dfVowel$word %in% c("moat", "moat2"),]$vowel = "ou"
 dfVowel$vowel = as.factor(as.character(dfVowel$vowel))
 
-### Multiple F1-F4 by 1000 to get typical scaling
-dfVowel$F1 = dfVowel$F1 * 1000
-dfVowel$F2 = dfVowel$F2 * 1000
-dfVowel$F3 = dfVowel$F3 * 1000
-dfVowel$F4 = dfVowel$F4 * 1000
 
 # -----------------------------------------------------
 
@@ -116,10 +111,11 @@ plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "male",],
      main = "Male speaker", ylab = "F1", xlab = "F2",
      ylim = c(maleYLimMax, maleYLimMin), xlim = c(maleXLimMax, maleXLimMin),
      pch = 16, col = dfVowel$vowelCol)
+legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
 
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "female",],
      log = "xy",
      main = "Female speaker", ylab = "F1", xlab = "F2",
      ylim = c(femaleYLimMax, femaleYLimMin), xlim = c(femaleXLimMax, femaleXLimMin),
      pch = 16, col = dfVowel$vowelCol)
-
+legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
