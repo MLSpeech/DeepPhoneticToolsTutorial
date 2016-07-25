@@ -110,12 +110,12 @@ plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "male",],
      log = "xy",
      main = "Male speaker", ylab = "F1", xlab = "F2",
      ylim = c(maleYLimMax, maleYLimMin), xlim = c(maleXLimMax, maleXLimMin),
-     pch = 16, col = dfVowel$vowelCol)
+     pch = 16, col = dfVowel[dfVowel$sex == "male",]$vowelCol)
 legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
 
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "female",],
      log = "xy",
      main = "Female speaker", ylab = "F1", xlab = "F2",
      ylim = c(femaleYLimMax, femaleYLimMin), xlim = c(femaleXLimMax, femaleXLimMin),
-     pch = 16, col = dfVowel$vowelCol)
+     pch = 16, col = dfVowel[dfVowel$sex == "female",]$vowelCol)
 legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
