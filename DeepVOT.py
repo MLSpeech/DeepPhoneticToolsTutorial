@@ -35,9 +35,9 @@ def main(wav_path, textgrid_path, output_predictions):
             wav_filename_abs = os.path.abspath("%s/%s" % (wav_path, wav_filename))
             textgrid_filename_abs = os.path.abspath("%s/%s" % (textgrid_path, textgrid_filename))
             output_predictions_abs = os.path.abspath(output_predictions)
-            os.chdir("DeepVOT")
+            os.chdir("DeepVOT/run_all/")
             tmp_predictions = generate_tmp_filename("preds")
-            DeepVOT.run_all.predict.predict_from_textgrid(wav_filename_abs, textgrid_filename_abs, tmp_predictions)
+            DeepVOT.run_all.predict.predict_from_textgrid(wav_filename_abs, textgrid_filename_abs, 'window', tmp_predictions)
             csv_append_row(tmp_predictions, output_predictions_abs)
             os.chdir(current_dir)
     elif os.path.isfile(wav_path):
