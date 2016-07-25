@@ -103,7 +103,6 @@ femaleXLimMin = min(dfVowel[dfVowel$sex == "female",]$F2) -
 femaleXLimMax = max(dfVowel[dfVowel$sex == "female",]$F2) +
   min(dfVowel[dfVowel$sex == "female",]$F2)*.1
 
-
 #Plot
 par(mfrow = c(1,2))
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "male",],
@@ -111,11 +110,11 @@ plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "male",],
      main = "Male speaker", ylab = "F1", xlab = "F2",
      ylim = c(maleYLimMax, maleYLimMin), xlim = c(maleXLimMax, maleXLimMin),
      pch = 16, col = dfVowel[dfVowel$sex == "male",]$vowelCol)
-legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
+legend("bottomleft", c("a", "i", "u", "ou"), col = c("blue", "green", "red", "purple"), pch = 16) 
 
 plot(F1 ~ F2, data = dfVowel[dfVowel$sex == "female",],
      log = "xy",
      main = "Female speaker", ylab = "F1", xlab = "F2",
      ylim = c(femaleYLimMax, femaleYLimMin), xlim = c(femaleXLimMax, femaleXLimMin),
      pch = 16, col = dfVowel[dfVowel$sex == "female",]$vowelCol)
-legend("topleft", c("a", "i", "u"), col = c("red", "green", "blue"), pch = 16) 
+legend("bottomleft", c("a", "i", "u", "ou"), col = c("blue", "green", "red", "purple"), pch = 16) 
