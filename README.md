@@ -42,7 +42,7 @@ luarocks install rnn
 #### Model Installation
 The model for DeepWDM should be downloaded from here: [RNN model](https://drive.google.com/open?id=0Bxkc5_D0JjpiNHVzU19WTUdBS3M). Then, it should be moved to  DeepWDM/back_end/results/ as follows
 ```
-cp ~/Downloads/1_layer_model.net ~/DeepPhoneticTools/DeepWDM/back_end/results
+cp ~/Downloads/1_layer_model.net ~/DeepPhoneticToolsTutorial/DeepWDM/back_end/results
 ```
 
 ## Usage and Examples
@@ -87,7 +87,7 @@ python DeepWDM.py sampleFiles/waveforms sampleFiles/word_durations sampleFiles/w
 
 python GenerateSearchWindows.py sampleFiles/word_durations
 
-python AutoVOT.py sampleFiles/waveform sampleFiles/word_durations sampleFiles/vot.csv
+python AutoVOT.py sampleFiles/waveforms sampleFiles/word_durations sampleFiles/vot.csv
 ```
 
 For more details, please refer to: https://mlspeech.github.io
