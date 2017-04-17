@@ -45,7 +45,7 @@ def main(wav_path, textgrid_path, output_predictions):
         textgrid_path_abs = os.path.abspath(textgrid_path)
         output_preds_abs = os.path.abspath(output_predictions)
         os.chdir("DeepVOT/run_all/")
-        DeepVOT.run_all.predict.predict_from_textgrid(wav_path_abs, textgrid_path_abs, 'window', output_preds_abs)  # output_preds_abs
+        DeepVOT.run_all.predict.predict_from_textgrid(wav_path_abs, textgrid_path_abs, 'window', output_preds_abs)
         os.chdir(current_dir)
     else:
         print >> sys.stderr, "Input paths should be both files or both directories."

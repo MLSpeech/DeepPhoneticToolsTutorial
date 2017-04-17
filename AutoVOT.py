@@ -85,13 +85,16 @@ def main(wav_path, textgrid_path, windows_tier, output_csv_filename):
         tmp_wav16_filename = generate_tmp_filename("wav")
         command1 = "sox %s -c 1 -r 16000 %s" % (wav_path_abs, tmp_wav16_filename)
         easy_call(command1)
+        tmp_predictions = generate_tmp_filename("preds")
         command2 = "python auto_vot_decode.py %s %s %s --window_tier %s --csv_file %s" % (tmp_wav16_filename,
                                                                                    textgrid_path_abs,
                                                                                    auto_vot_model,
                                                                                    windows_tier,
-                                                                                   output_csv_filename_abs)
+                                                                                   tmp_predictions)
         easy_call(command2)
+        csv_append_row_and_correct_wav(tmp_predictions, output_csv_filename_abs, wav_path_abs, tmp_wav16_filename)
         os.remove(tmp_wav16_filename)
+        os.remove(tmp_predictions)
         os.chdir(current_dir)
     else:
         print >> sys.stderr, "Input paths should be both files or both directories."

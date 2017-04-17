@@ -75,8 +75,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser("Generate search windows for the processing of AutoVOT and DeepVOT.")
     parser.add_argument("textgrid_path", help="a TextGrid file or folder")
     parser.add_argument("--tier", default="word", help="name of the tier with the word boundaries")
-    parser.add_argument("--before", default=0.18, help="seconds before the word start boundary", type=float)
-    parser.add_argument("--after", default=0.1, help="seconds after the word start boundary", type=float)
+    parser.add_argument("--before", default=0.12, help="seconds before the word start boundary", type=float)
+    parser.add_argument("--after", default=0.16, help="seconds after the word start boundary", type=float)
     args = parser.parse_args()
     
     # main function
